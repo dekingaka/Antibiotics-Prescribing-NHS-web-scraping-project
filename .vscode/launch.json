@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: antibiotic_trends.py",
+            "name": "Python: antibiotics_trend.py",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/antibiotic_trends.py",
+            "program": "${workspaceFolder}/antibiotics_trend.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }
