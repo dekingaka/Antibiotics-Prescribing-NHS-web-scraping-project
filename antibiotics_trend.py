@@ -66,3 +66,18 @@ def fetch_measure_by_org(measure_id, org_type):
               "percentile": point.get("percentile"),
           })
   return out
+
+def fetch_national_trend(measure_id):
+    """National-level series for the same measure, used for the trend chart."""
+    print(f"Fetching national trend for '{measure_id}'...")
+    data = api_get("/measure/", {"measure": measure_id, "org_type": "national"})
+    rows = data.get("measures", [])
+    if not rows:
+        return []
+    out = []
+    for point in rows[0].get("data", []):
+        out.append({
+            "date": point.get("date"),
+            "calc_value": point.get("calc_value"),
+        })
+    return out
