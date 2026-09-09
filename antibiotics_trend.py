@@ -81,3 +81,11 @@ def fetch_national_trend(measure_id):
             "calc_value": point.get("calc_value"),
         })
     return out
+
+
+def save_csv(rows, filename, fieldnames):
+    with open(filename, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"Wrote {len(rows)} rows to {filename}")
