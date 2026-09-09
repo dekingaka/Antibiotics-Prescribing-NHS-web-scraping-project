@@ -89,3 +89,12 @@ def save_csv(rows, filename, fieldnames):
         writer.writeheader()
         writer.writerows(rows)
     print(f"Wrote {len(rows)} rows to {filename}")
+
+
+def plot_national_trend(national_rows, out_path):
+    if not national_rows:
+        print("No national data to plot - skipping national trend chart.")
+        return
+    df = pd.DataFrame(national_rows)
+    df["date"] = pd.to_datetime(df["date"])
+    df = df.sort_values("date")
