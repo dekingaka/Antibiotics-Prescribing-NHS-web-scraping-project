@@ -109,3 +109,8 @@ def plot_national_trend(national_rows, out_path):
     plt.savefig(out_path, dpi=150)
     plt.close()
     print(f"Saved chart: {out_path}")
+
+def plot_top_bottom_orgs(org_rows, out_path, n=5):
+    df = pd.DataFrame(org_rows)
+    df["date"] = pd.to_datetime(df["date"])
+    df = df.dropna(subset=["calc_value"])
